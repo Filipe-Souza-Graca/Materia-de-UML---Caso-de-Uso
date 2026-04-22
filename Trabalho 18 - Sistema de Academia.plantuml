@@ -1,0 +1,37 @@
+@startuml trabalho 18
+left to right direction
+skinparam packageStyle rectangle
+
+actor Aluno as A
+actor Recepcionista as R
+actor Instrutor as I
+
+rectangle " Sistema de Academia" {
+    usecase "Gerenciar Alunos" as AC1
+    usecase "Treinar alunos " as AC2
+    usecase "Gerenciar Pagamentos" as AC3
+    usecase "Inscrever matricula" as AC4
+    usecase "Registrar matricula" as AC5
+    usecase "Cadastrar Treinos" as AC6
+    usecase "Consultar Treinos" as AC7
+    usecase "Realizar Pagamento" as AC8
+
+
+}
+
+AC1 <--- I
+AC2 <--- I
+AC3 <--- R
+A  --> AC4
+AC5 <-- R
+AC6 <-- I
+AC7 <-- I
+AC7 <-- R
+A --> AC7
+A ---> AC8
+AC6 --> R
+R <-- AC4
+AC8 --> R
+
+
+@enduml

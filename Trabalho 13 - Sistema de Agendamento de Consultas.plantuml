@@ -1,0 +1,29 @@
+@startuml trabalho 13
+left to right direction
+skinparam packageStyle rectangle
+
+actor Paciente as PA
+actor Recepcionista as RE
+
+rectangle "Sistema de Agendamento de Consultas" {
+    usecase "Agendar consultas" as C1
+    usecase "organizar os horários" as  C2
+    usecase "Solicitar Agendamento" as C3
+    usecase "registrar a consulta" as C4
+    usecase "Cancelar horario" as C5
+    usecase "Alterar consulta" as C6
+
+
+}
+
+PA --> C3
+C2 <--- RE
+C1 <-- RE
+C4 <-- RE
+C4 ..> C5: <<include>>
+C4 ..> C6 : <<extend>>
+
+
+
+
+@enduml

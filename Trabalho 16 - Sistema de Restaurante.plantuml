@@ -1,0 +1,30 @@
+@startuml trabalho 16
+left to right direction
+skinparam packageStyle rectangle
+
+actor Cliente as C
+actor Garçom as G
+actor Cozinha as CO
+actor Caixa as CX
+
+rectangle "Sistema de Restaurante" {
+    usecase "Fazer Pedido " as R1
+    usecase "Registrar pedido" as R2
+    usecase "Cozinhar pedido " as R3
+    usecase "Somar pedidos" as R4
+    usecase "Realizar pagamento" as R5
+    usecase "Finalizar Pagamento" as R6
+
+
+}
+
+C --> R1
+R2 <-- G
+R3 <-- CO
+R4 <--CX
+C --> R5
+R6 <-- CX
+R2 --> CO
+
+
+@enduml

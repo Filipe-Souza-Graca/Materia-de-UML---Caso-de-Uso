@@ -1,0 +1,28 @@
+@startuml trabalho 20
+left to right direction
+skinparam packageStyle rectangle
+
+actor Hóspede as H
+actor Recepcionista as R
+actor Sistema_de_Pagamento as SP
+
+rectangle "Sistema de Hotel" {
+    usecase "Marcar Reserva" as H1
+    usecase "Registrar Check-in" as H2
+    usecase "Controlar hospedagem" as H3
+    usecase "Pagar hospedagem" as H4
+    usecase "Registrar ckeck-out" as H5
+
+}
+
+H ---> H1
+H2 <---- R
+H3 <---- SP
+H --> H4
+H4 ..> H5 : <<include>>
+H5 --> R
+R -> SP
+H2 --> H
+
+
+@enduml

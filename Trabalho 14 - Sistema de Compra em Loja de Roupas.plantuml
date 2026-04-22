@@ -1,0 +1,30 @@
+@startuml trabalho 14
+left to right direction
+skinparam packageStyle rectangle
+
+actor Cliente as C
+actor Vendedor as V
+
+rectangle "Sistema de Compra em Loja de Roupas" {
+   usecase "Vender produto" as P1
+   usecase "Escolher produto" as P2
+   usecase "Registrar compra" as P3
+   usecase "Cobrar Valor" as P4
+   usecase "Somar valores" as P5
+   usecase "Concluir Pagamento" as P6
+   usecase "Finalizar venda" as P7
+
+
+}
+
+P1 <--- V
+C --> P2
+P3 <-- V
+P4 <-- V
+P4 ..> P5 : <<extend>>
+C --> P6
+P3 ..> P7
+
+
+
+@enduml

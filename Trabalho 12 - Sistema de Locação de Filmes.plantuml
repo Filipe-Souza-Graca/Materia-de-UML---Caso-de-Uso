@@ -1,0 +1,36 @@
+@startuml Trabalho 12
+left to right direction
+skinparam packageStyle rectangle
+
+actor Cliente as C
+actor Atendente as A
+
+rectangle "Sistema de Locação de Filmes" {
+    usecase "Alugar Filme" as L1
+    usecase "selecionar quantidade" as L2
+    usecase "Registrar pedido" as L3
+    usecase "Mostrar identidade" as L4
+    usecase "Alugar filme selecionado" as L5
+    usecase "Devolver filme" as L6
+    usecase "Receber filme"   as L7
+}
+
+'Atribuição do cliente no lado de fora a esquerda
+
+C --> L1
+C --> L2
+
+C --> L6
+
+'Atribuiçao do Atendente no lado direito
+
+L3 <--- A
+L7 <--- A
+L4 <-- A
+
+'Atribuicao do insert e extend
+L2 ..> L5 : <<include>>
+
+L2 ..> L4: <<extend>>
+
+@enduml

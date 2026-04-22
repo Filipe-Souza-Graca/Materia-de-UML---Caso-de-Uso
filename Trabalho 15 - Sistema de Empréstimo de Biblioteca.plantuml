@@ -1,0 +1,28 @@
+@startuml trabalho 15
+left to right direction
+skinparam packageStyle rectangle
+
+actor Usuário as U
+actor Bibliotecário as B
+
+rectangle "Sistema de Empréstimo de Biblioteca" {
+    usecase "Pegar Livro" as L1
+    usecase "Registrar livro" as L2
+    usecase "Informar data de devolução" as L3
+    usecase "Registrar devolução" as L4
+    usecase "Registrar como devolvido" as L5
+
+}
+
+U --> L1
+L2 <--- B
+L2 ..> L3: <<include>>
+U --> L4
+L5 <-- B
+
+
+
+
+
+
+@enduml
